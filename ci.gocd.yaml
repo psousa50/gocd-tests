@@ -5,6 +5,8 @@ environments:
 
 pipelines:
   Test1:
+    group: "Test1Group"
+    label_template: "1.1.${COUNT}"
     lock_behavior: "none"
     materials:
       IdConnector:

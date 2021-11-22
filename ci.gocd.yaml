@@ -1,0 +1,21 @@
+environments:
+  test_1_environment:
+    pipelines:
+      - Test1
+
+pipelines:
+  Test1:
+    group: "IDConnectorDataPipelines"
+    label_template: "1.1.${COUNT}"
+    lock_behavior: "none"
+    materials:
+      IdConnector:
+        git: "git@github.com:psousa50/gocd-tests.git"
+        branch: "main"
+    stages:
+      - Tests:
+          jobs:
+            Hello:
+              tasks:
+                - exec:
+                    command: "echo hello"
